@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOHAVEX.DIGITAL - The Future of Digital Business</title>
+    <title>MOHAVEX.DIGITAL - L'avenir du commerce numérique</title>
+
     <style>
         :root {
             --bg-primary: #0b0f19;
@@ -14,80 +16,204 @@
             --text-muted: #94a3b8;
             --border-color: #1e293b;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: var(--bg-primary); color: var(--text-main); min-height: 100vh; padding: 15px; }
-        header { background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .logo { font-size: 18px; font-weight: bold; }
-        .logo span { color: var(--accent-blue); }
-        select { background: var(--bg-primary); color: var(--text-main); border: 1px solid var(--border-color); padding: 8px; border-radius: 6px; }
-        .hero { text-align: center; padding: 30px 15px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 20px; }
-        .hero h1 { font-size: 22px; color: #0051ff; margin-bottom: 10px; }
-        .hero p { color: var(--text-muted); font-size: 14px; margin-bottom: 15px; }
-        .grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .card { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 15px; }
-        .card h3 { color: var(--accent-blue); margin-bottom: 8px; font-size: 16px; }
-        .card p { color: var(--text-muted); font-size: 13px; margin-bottom: 12px; }
-        .btn { background: var(--accent-blue); color: #fff; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; width: 100%; cursor: pointer; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        select {
+            background: var(--bg-primary);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 15px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 22px;
+            color: #0051ff;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            background: var(--accent-blue);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="logo">MOHAVEX<span>.DIGITAL</span></div>
+
         <select id="langSelect" onchange="changeLanguage(this.value)">
+            <option value="fr" selected>Français</option>
             <option value="ha">Hausa</option>
-            <option value="fr">Français</option>
             <option value="en">English</option>
             <option value="ar">العربية</option>
         </select>
     </header>
 
     <div class="hero">
-        <h1 id="heroTitle">Gaba na Kasuwancin Zamani na Dijital</h1>
-        <p id="heroSubtitle">Kafar duniya ta ayyukan kan-kanan da tallan haɗin gwiwa (Affiliate) - Wanda ya kafa: Mohamed</p>
-        <button class="btn" onclick="alert('Barka da zuwa MOHAVEX.DIGITAL!')">Fara Yanzu</button>
+        <h1 id="heroTitle">L'avenir du commerce numérique</h1>
+
+        <p id="heroSubtitle">
+            Plateforme internationale de micro-tâches et d'affiliation - Fondateur : Mohamed
+        </p>
+
+        <button class="btn" id="startBtn"
+            onclick="alert('Bienvenue sur MOHAVEX.DIGITAL !')">
+            Commencer maintenant
+        </button>
     </div>
 
     <div class="grid">
+
         <div class="card">
-            <h3 id="feat1Title">AIYUKAN MOHAVEX (TASKS)</h3>
-            <p id="feat1Desc">Gudanar da ingantattun ayyuka da aka tabbatar sannan ka sami kuɗi.</p>
-            <button class="btn" onclick="alert('Fannin Ayyuka')">Duba Ayyuka</button>
+            <h3 id="feat1Title">MOHAVEX TASKS</h3>
+            <p id="feat1Desc">
+                Réalisez des missions rémunérées vérifiées et gagnez de vrais revenus.
+            </p>
+            <button class="btn" id="tasksBtn"
+                onclick="alert('Section des tâches')">
+                Voir les tâches
+            </button>
         </div>
+
         <div class="card">
-            <h3 id="feat2Title">KASUWAR MOHAVEX (MARKET)</h3>
-            <p id="feat2Desc">Binciki kaya daga Alibaba tare da hanyoyin haɗin gwiwa na affiliate.</p>
-            <button class="btn" onclick="alert('Fannin Kasuwa')">Shiga Kasuwa</button>
+            <h3 id="feat2Title">MOHAVEX MARKET</h3>
+            <p id="feat2Desc">
+                Découvrez des produits Alibaba avec des liens d'affiliation officiels.
+            </p>
+            <button class="btn" id="marketBtn"
+                onclick="alert('Section du marché')">
+                Accéder au marché
+            </button>
         </div>
+
         <div class="card">
-            <h3 id="feat3Title">JAKA (WALLET)</h3>
-            <p id="feat3Desc">Duba ajiyar kuɗinka a FCFA ko USDT sannan ka ciro kuɗinka.</p>
-            <button class="btn" onclick="alert('Fannin Jaka')">Duba Jaka</button>
+            <h3 id="feat3Title">MOHAVEX WALLET</h3>
+            <p id="feat3Desc">
+                Consultez vos soldes en FCFA ou USDT et effectuez des retraits.
+            </p>
+            <button class="btn" id="walletBtn"
+                onclick="alert('Section du portefeuille')">
+                Voir le portefeuille
+            </button>
         </div>
+
     </div>
 
     <script>
         const translations = {
-            ha: {
-                heroTitle: "Gaba na Kasuwancin Zamani na Dijital",
-                heroSubtitle: "Kafar duniya ta ayyukan kan-kanan da tallan haɗin gwiwa (Affiliate) - Wanda ya kafa: Mohamed",
-                feat1Title: "AIYUKAN MOHAVEX (TASKS)",
-                feat1Desc: "Gudanar da ingantattun ayyuka da aka tabbatar sannan ka sami kuɗi.",
-                feat2Title: "KASUWAR MOHAVEX (MARKET)",
-                feat2Desc: "Binciki kaya daga Alibaba tare da hanyoyin haɗin gwiwa na affiliate.",
-                feat3Title: "JAKA (WALLET)",
-                feat3Desc: "Duba ajiyar kuɗinka a FCFA ko USDT sannan ka ciro kuɗinka."
-            },
+
             fr: {
-                heroTitle: "The Future of Digital Business",
+                heroTitle: "L'avenir du commerce numérique",
                 heroSubtitle: "Plateforme internationale de micro-tâches et d'affiliation - Fondateur : Mohamed",
                 feat1Title: "MOHAVEX TASKS",
                 feat1Desc: "Réalisez des missions rémunérées vérifiées et gagnez de vrais revenus.",
                 feat2Title: "MOHAVEX MARKET",
-                feat2Desc: "Découvrez des produits Alibaba avec liens d'affiliation officiels.",
+                feat2Desc: "Découvrez des produits Alibaba avec des liens d'affiliation officiels.",
                 feat3Title: "MOHAVEX WALLET",
-                feat3Desc: "Consultez vos soldes en FCFA ou USDT et effectuez des retraits."
+                feat3Desc: "Consultez vos soldes en FCFA ou USDT et effectuez des retraits.",
+                start: "Commencer maintenant",
+                tasks: "Voir les tâches",
+                market: "Accéder au marché",
+                wallet: "Voir le portefeuille"
             },
+
+            ha: {
+                heroTitle: "Gaba na Kasuwancin Zamani na Dijital",
+                heroSubtitle: "Kafar duniya ta ayyukan kan-kanan da tallan haɗin gwiwa - Wanda ya kafa: Mohamed",
+                feat1Title: "AIYUKAN MOHAVEX",
+                feat1Desc: "Gudanar da ingantattun ayyuka sannan ka sami kuɗi.",
+                feat2Title: "KASUWAR MOHAVEX",
+                feat2Desc: "Binciki kaya daga Alibaba tare da hanyoyin haɗin gwiwa.",
+                feat3Title: "JAKA TA MOHAVEX",
+                feat3Desc: "Duba ajiyar kuɗinka a FCFA ko USDT sannan ka ciro kuɗinka.",
+                start: "Fara Yanzu",
+                tasks: "Duba Ayyuka",
+                market: "Shiga Kasuwa",
+                wallet: "Duba Jaka"
+            },
+
             en: {
                 heroTitle: "The Future of Digital Business",
                 heroSubtitle: "International micro-task and affiliate marketing platform - Founder: Mohamed",
@@ -96,37 +222,63 @@
                 feat2Title: "MOHAVEX MARKET",
                 feat2Desc: "Discover Alibaba products with official affiliate links.",
                 feat3Title: "MOHAVEX WALLET",
-                feat3Desc: "Check your balances in FCFA or USDT and make withdrawals."
+                feat3Desc: "Check your balances in FCFA or USDT and make withdrawals.",
+                start: "Get Started",
+                tasks: "View Tasks",
+                market: "Visit Market",
+                wallet: "View Wallet"
             },
+
             ar: {
                 heroTitle: "مستقبل الأعمال الرقمية",
                 heroSubtitle: "منصة دولية للمهام المصغرة والتسويق بالعمولة - المؤسس: محمد",
-                feat1Title: "مهام موهافكس (TASKS)",
+                feat1Title: "مهام موهافكس",
                 feat1Desc: "أكمل المهام المدفوعة والمتحقق منها واكسب أرباحاً حقيقية.",
-                feat2Title: "سوق موهافكس (MARKET)",
-                feat2Desc: "اكتشف منتجات معتمدة بروابط إحالة رسمية.",
-                feat3Title: "محفظة موهافكس (WALLET)",
-                feat3Desc: "راجع أرصدتك بالفرنك الإفريقي أو USDT وإجراء عمليات السحب."
+                feat2Title: "سوق موهافكس",
+                feat2Desc: "اكتشف منتجات بروابط إحالة رسمية.",
+                feat3Title: "محفظة موهافكس",
+                feat3Desc: "راجع أرصدتك بالفرنك الإفريقي أو USDT وقم بعمليات السحب.",
+                start: "ابدأ الآن",
+                tasks: "عرض المهام",
+                market: "دخول السوق",
+                wallet: "عرض المحفظة"
             }
+
         };
 
         function changeLanguage(lang) {
+
             const root = document.getElementById('htmlRoot');
-            if (lang === 'ar') {
-                root.setAttribute('dir', 'rtl');
-            } else {
-                root.setAttribute('dir', 'ltr');
-            }
             const t = translations[lang];
+
+            if (!t) return;
+
+            root.setAttribute('lang', lang);
+            root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
             document.getElementById('heroTitle').innerText = t.heroTitle;
             document.getElementById('heroSubtitle').innerText = t.heroSubtitle;
+
             document.getElementById('feat1Title').innerText = t.feat1Title;
             document.getElementById('feat1Desc').innerText = t.feat1Desc;
+
             document.getElementById('feat2Title').innerText = t.feat2Title;
             document.getElementById('feat2Desc').innerText = t.feat2Desc;
+
             document.getElementById('feat3Title').innerText = t.feat3Title;
             document.getElementById('feat3Desc').innerText = t.feat3Desc;
+
+            document.getElementById('startBtn').innerText = t.start;
+            document.getElementById('tasksBtn').innerText = t.tasks;
+            document.getElementById('marketBtn').innerText = t.market;
+            document.getElementById('walletBtn').innerText = t.wallet;
         }
+
+        // Langue française par défaut
+        document.getElementById('langSelect').value = 'fr';
+        changeLanguage('fr');
+
     </script>
+
 </body>
 </html>
