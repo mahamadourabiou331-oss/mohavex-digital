@@ -130,7 +130,46 @@
             <option value="ar">العربية</option>
         </select>
     </header>
+<section id="authSection" style="background:#151b2b;padding:20px;border-radius:12px;margin-bottom:20px;border:1px solid #1e293b;">
+    <h2>MOHAVEX ACCOUNT</h2>
 
+    <p id="authStatus">Connectez-vous ou créez votre compte</p>
+
+    <input
+        id="authName"
+        type="text"
+        placeholder="Votre nom"
+        style="width:100%;padding:12px;margin:8px 0;"
+    >
+
+    <input
+        id="authEmail"
+        type="email"
+        placeholder="Votre adresse email"
+        style="width:100%;padding:12px;margin:8px 0;"
+    >
+
+    <input
+        id="authPassword"
+        type="password"
+        placeholder="Votre mot de passe"
+        style="width:100%;padding:12px;margin:8px 0;"
+    >
+
+    <button type="button" id="registerBtn" class="btn">
+        Créer un compte
+    </button>
+
+    <button type="button" id="loginBtn" class="btn">
+        Se connecter
+    </button>
+
+    <button type="button" id="logoutBtn" class="btn" hidden>
+        Déconnexion
+    </button>
+
+    <p id="authMessage"></p>
+</section>
     <div class="hero">
         <h1 id="heroTitle">L'avenir du commerce numérique</h1>
 
@@ -279,6 +318,111 @@
         changeLanguage('fr');
 
     </script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDM3NaR8pH3NdrGJdBmC1yPL-F4g2qCRw",
+  authDomain: "mohavex-digital.firebaseapp.com",
+  projectId: "mohavex-digital",
+  storageBucket: "mohavex-digital.firebasestorage.app",
+  messagingSenderId: "548231624043",
+  appId: "1:548231624043:web:a2ac3877cd4cb9c785482e"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+// MOHAVEX USER REGISTRATION
+document.getElementById("registerBtn").addEventListener("click", async () => {
+    const name = document.getElementById("authName").value.trim();
+    const email = document.getElementById("authEmail").value.trim();
+    const password = document.getElementById("authPassword").value;
+
+    const message = document.getElementById("authMessage");
+
+    if (!name || !email || !password) {
+        message.textContent = "Veuillez remplir tous les champs.";
+        return;
+    }
+
+    try {
+        const result = await createUserWithEmailAndPassword(auth, email, password);
+
+        await setDoc(doc(db, "users", result.user.uid), {
+    uid: result.user.uid,
+    name: name,
+    email: email,
+    createdAt: serverTimestamp()
+});
+
+        message.textContent = "Compte créé avec succès !";
+    } catch (error) {
+        message.textContent = error.message;
+    }
+});
+
+// MOHAVEX USER LOGIN
+document.getElementById("loginBtn").addEventListener("click", async () => {
+    const email = document.getElementById("authEmail").value.trim();
+    const password = document.getElementById("authPassword").value;
+
+    const message = document.getElementById("authMessage");
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        message.textContent = "Connexion réussie !";
+    } catch (error) {
+        message.textContent = error.message;
+    }
+});
+
+// MOHAVEX USER LOGOUT
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+    await signOut(auth);
+});
+
+// CHECK USER CONNECTION
+onAuthStateChanged(auth, async (user) => {
+    const status = document.getElementById("authStatus");
+    const logout = document.getElementById("logoutBtn");
+    const register = document.getElementById("registerBtn");
+    const login = document.getElementById("loginBtn");
+
+    if (user) {
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+
+        status.textContent = userDoc.exists()
+            ? "Bienvenue " + userDoc.data().name
+            : "Bienvenue sur MOHAVEX.DIGITAL";
+
+        logout.hidden = false;
+        register.hidden = true;
+        login.hidden = true;
+    } else {
+        status.textContent = "Connectez-vous ou créez votre compte";
+        logout.hidden = true;
+        register.hidden = false;
+        login.hidden = false;
+    }
+});
+console.log("MOHAVEX.DIGITAL Firebase connected!");
+</script>
 </body>
 </html>
